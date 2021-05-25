@@ -15,7 +15,7 @@ RSpec.describe 'Api::V1::Programs', type: :request do
     end
 
     it { expect(response).to have_http_status(:ok) }
-    it { expect(response.headers['Content-Type']).to eq('application/json; charset=utf-8') }
+    it { expect(response).to eq('application/json; charset=utf-8') }
 
     it { expect(json_body['programs'].keys.sort).to eq(%w[current_page pages count items is_last].sort) }
 
