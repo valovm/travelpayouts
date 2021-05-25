@@ -12,8 +12,11 @@ module Programs
                             I18n.t('Programs.Subscription.errors.USER_IS_SUBSCRIBED_ALREADY.detail'))
       end
 
+      Program.transaction do
+        ProgramUser.create! program: program, user: user
+        program.update count_of_users: program.count_of_users + 1
+      end
 
-      ProgramUser.create! program: program, user: user
       true
     end
 
@@ -25,7 +28,11 @@ module Programs
                             I18n.t('Programs.Subscription.errors.USER_IS_NOT_SUBSCRIBED.detail'))
       end
 
-      program_user.destroy!
+      Program.transaction do
+        ProgramUser.destroy!
+        program.update count_of_users: program.count_of_users - 1
+      end
+
       true
     end
 

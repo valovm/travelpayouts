@@ -18,17 +18,13 @@ RSpec.describe 'Programs' do
     create(:program, title: 'Freedom for Anjela Davis')
   end
 
-  describe 'Programs::List' do
-    let(:result) { programs.call }
-    it { expect(result.size).to eq(10) }
-  end
 
-  describe 'Programs::List with term' do
-      it { expect(programs.call('hello').size).to eq(5) }
-      it { expect(programs.call('Hello').size).to eq(5) }
-      it { expect(programs.call('HELLO').size).to eq(5) }
-      it { expect(programs.call('HELL').size).to eq(6) }
-      it { expect(programs.call('FUCK').size).to eq(1) }
-      it { expect(programs.call('ALOHA').size).to eq(0) }
+  describe 'Programs::Autocomplete' do
+    it { expect(programs.call('hello').size).to eq(5) }
+    it { expect(programs.call('Hello').size).to eq(5) }
+    it { expect(programs.call('HELLO').size).to eq(5) }
+    it { expect(programs.call('HELL').size).to eq(6) }
+    it { expect(programs.call('FUCK').size).to eq(1) }
+    it { expect(programs.call('ALOHA').size).to eq(0) }
   end
 end
