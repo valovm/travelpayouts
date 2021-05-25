@@ -3,7 +3,8 @@ require 'rails_helper'
 
 RSpec.describe 'Programs' do
 
-  let!(:programs) { Programs::List.new }
+  let!(:programs) { Programs::Autocomplete }
+  let!(:user) { create :user }
 
   before do
     create(:program, title: 'HelloHihello')

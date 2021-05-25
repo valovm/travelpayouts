@@ -14,7 +14,8 @@ module Programs
 
       Program.transaction do
         ProgramUser.create! program: program, user: user
-        program.update count_of_users: program.count_of_users + 1
+        program.count_of_users += 1
+        program.save
       end
 
       true
@@ -29,8 +30,10 @@ module Programs
       end
 
       Program.transaction do
-        ProgramUser.destroy!
-        program.update count_of_users: program.count_of_users - 1
+        program_user.destroy!
+        program.count_of_users -= 1
+        program.count_of_users = 0 if program.count_of_users.negative?
+        program.save
       end
 
       true
