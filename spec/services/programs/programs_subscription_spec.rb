@@ -9,11 +9,11 @@ RSpec.describe 'Programs::Subscription' do
 
   describe 'Programs::Subscription' do
     it do
-      expect { programs_service.unsubscribe(program, user) }.to raise_error StandardError
+      expect { programs_service.unsubscribe(program, user) }.to raise_error BaseError
       expect(programs_service.subscribe(program, user)).to be_truthy
-      expect { programs_service.subscribe(program, user) }.to raise_error StandardError
+      expect { programs_service.subscribe(program, user) }.to raise_error BaseError
       expect(programs_service.unsubscribe(program, user)).to be_truthy
-      expect { programs_service.unsubscribe(program, user) }.to raise_error StandardError
+      expect { programs_service.unsubscribe(program, user) }.to raise_error BaseError
     end
   end
 end

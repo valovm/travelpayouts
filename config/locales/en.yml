@@ -31,3 +31,18 @@
 
 en:
   hello: "Hello world"
+
+  errors:
+    common:
+      title: "Something is wrong"
+      detail: "Somebody must something do with it "
+
+  Programs:
+    Subscription:
+      errors:
+        USER_IS_SUBSCRIBED_ALREADY:
+          title: "User is subscribed already"
+          detail: "Somebody must something do with it "
+        USER_IS_NOT_SUBSCRIBED:
+          title: "User is not subscribed"
+          detail: "Somebody must something do with it "
