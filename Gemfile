@@ -29,10 +29,10 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   # Rspec
-  gem 'rspec-rails', '~> 4.0.1'
-  gem 'rspec-its'
   gem 'factory_bot_rails'
-  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+  gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
+  gem 'rspec-its'
+  gem 'rspec-rails', '~> 5.0.0'
   # Dotenv
   gem 'dotenv-rails'
 end

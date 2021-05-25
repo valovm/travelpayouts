@@ -3,6 +3,7 @@
 class Api::V1::ProgramsController < ApplicationController
   before_action :set_program, only: %i[show]
 
+  # GET api/v1/programs
   def index
     programs = Programs::List.new.call(params[:term]).page(page)
     render json: {
@@ -16,6 +17,7 @@ class Api::V1::ProgramsController < ApplicationController
     }
   end
 
+  # GET api/v1/programs/:id
   def show
     render json: @program
   end

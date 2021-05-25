@@ -3,10 +3,11 @@
 class Api::V1::UsersController < ApplicationController
   before_action :set_user, only: %i[show]
 
+  # GET api/v1/users
   def index
     users = User.all.page(page)
     render json: {
-      products: {
+      users: {
         current_page: users.current_page,
         pages: users.total_pages,
         count: users.count,
@@ -16,8 +17,9 @@ class Api::V1::UsersController < ApplicationController
     }
   end
 
+  # GET api/v1/users/:id
   def show
-    render json: @user
+    render json: { user: @user }
   end
 
   private
