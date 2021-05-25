@@ -7,7 +7,7 @@ class Api::V1::ProgramsController < ApplicationController
   def index
     programs = Programs::List.new.call(params[:term]).page(page)
     render json: {
-      products: {
+      programs: {
         current_page: programs.current_page,
         pages: programs.total_pages,
         count: programs.count,
@@ -19,7 +19,7 @@ class Api::V1::ProgramsController < ApplicationController
 
   # GET api/v1/programs/:id
   def show
-    render json: @program
+    render json: { program: @program }
   end
 
   private
