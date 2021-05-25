@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Api::V1::Users::ProgramsController < ApplicationController
+  before_action :set_user
+  before_action :set_program, only: %i[destroy]
   before_action :subscribe_service, only: %i[create destroy]
 
   # GET api/v1/users/:user_id/programs
@@ -19,19 +21,23 @@ class Api::V1::Users::ProgramsController < ApplicationController
 
   # POST api/v1/users/:user_id/programs
   def create
-    program = User.find subscribe_params[:program_id]
-    subscribe_service.subscribe program, @user
+    program = Program.find subscribe_params[:program_id]
+    render json: { status: :subscribed  } if subscribe_service.subscribe program, @user
+  rescue Programs::Subscription::SubscriptionError
+    render json: { errors: [] }, status: 400
   end
 
   # DELETE api/v1/users/:user_id/programs/:id
   def destroy
-    subscribe_service.unsubscribe @program, @user
+    render json: { status: :unsubscribed } if subscribe_service.unsubscribe @program, @user
+  rescue Programs::Subscription::SubscriptionError
+    render json: { errors: [] }, status: 400
   end
 
   private
 
   def set_user
-    @user = Program.find params[:user_id]
+    @user = User.find params[:user_id]
   end
 
   def set_program
@@ -39,7 +45,7 @@ class Api::V1::Users::ProgramsController < ApplicationController
   end
 
   def subscribe_params
-    params.fetch(:subscribe).permit(:program_id)
+    params.require(:subscribe).permit(:program_id)
   end
 
   def subscribe_service
