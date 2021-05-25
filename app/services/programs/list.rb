@@ -8,7 +8,6 @@ module Programs
       else
         Program.all
       end
-
     end
   end
 end

@@ -10,7 +10,6 @@ class ApplicationController < ActionController::API
     render json: { errors: [e] }, status: :bad_request
   end
 
-
   private
 
   def page
