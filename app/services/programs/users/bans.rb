@@ -40,7 +40,7 @@ module Programs
     private
 
     def ban
-      @ban ||= BanProgramUser.find_by program: program, user: user
+      BanProgramUser.find_by program: program, user: user
     end
   end
 end
