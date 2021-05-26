@@ -23,11 +23,6 @@ class Api::V1::ProgramsController < ApplicationController
                              is_last: programs.last_page?}}
   end
 
-  # GET api/v1/programs/:id
-  def show
-    render json: {program: @program}
-  end
-
   private
 
   def set_program

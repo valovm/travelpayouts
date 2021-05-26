@@ -42,6 +42,4 @@ class Api::V1::Users::ProgramsController < ApplicationController
   def subscribe_params
     params.require(:subscribe).permit(:program_id)
   end
-
-
 end
