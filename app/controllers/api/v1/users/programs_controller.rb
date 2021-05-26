@@ -3,7 +3,6 @@
 class Api::V1::Users::ProgramsController < ApplicationController
   before_action :set_user
   before_action :set_program, only: %i[destroy]
-  before_action :subscribe_service, only: %i[create destroy]
 
   # GET api/v1/users/:user_id/programs
   def index
@@ -22,12 +21,12 @@ class Api::V1::Users::ProgramsController < ApplicationController
   # POST api/v1/users/:user_id/programs
   def create
     program = Program.find subscribe_params[:program_id]
-    render json: { status: :subscribed } if subscribe_service.subscribe program, @user
+    render json: {status: :subscribed} if Programs::Users.new(program, @user).subscribe
   end
 
   # DELETE api/v1/users/:user_id/programs/:id
   def destroy
-    render json: { status: :unsubscribed } if subscribe_service.unsubscribe @program, @user
+    render json: {status: :unsubscribed} if Programs::Users.new(@program, @user).unsubscribe
   end
 
   private
@@ -44,8 +43,5 @@ class Api::V1::Users::ProgramsController < ApplicationController
     params.require(:subscribe).permit(:program_id)
   end
 
-  def subscribe_service
-    Programs::Subscription.new
-  end
 
 end

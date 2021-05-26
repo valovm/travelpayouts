@@ -35,14 +35,25 @@ en:
   errors:
     common:
       title: "Something is wrong"
-      detail: "Somebody must something do with it "
+      detail: "Somebody must something do with it"
 
   Programs:
     Subscription:
       errors:
         USER_IS_SUBSCRIBED_ALREADY:
           title: "User is subscribed already"
-          detail: "Somebody must something do with it "
+          detail: "Somebody must something do with it"
         USER_IS_NOT_SUBSCRIBED:
           title: "User is not subscribed"
-          detail: "Somebody must something do with it "
+          detail: "Somebody must something do with it"
+        USER_IS_BANNED:
+          title: "User is banned in this program"
+          detail: "Somebody must something do with it"
+    Bans:
+      errors:
+        USER_IS_BANNED_ALREADY:
+          title: "User is banned already in this program"
+          detail: "Somebody must something do with it"
+        USER_IS_NOT_BANNED:
+          title: "User is not banned in this program"
+          detail: "Somebody must something do with it"
