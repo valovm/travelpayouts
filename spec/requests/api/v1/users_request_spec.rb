@@ -40,6 +40,44 @@ RSpec.describe 'Api::V1::Users', type: :request do
   end
 
 
+  describe 'POST /api/v1/users' do
+
+    context 'valid' do
+      let(:valid_params) { {email: Faker::Internet.email, name: Faker::Name.name} }
+
+      before do
+        post '/api/v1/users', params: {user: valid_params}
+      end
+
+      it { expect(response).to have_http_status(:ok) }
+    end
+
+    context 'not valid' do
+      let(:not_valid_params) { {email: Faker::Name.name, name: Faker::Name.name} }
+
+      before do
+        post '/api/v1/users', params: {user: not_valid_params}
+      end
+
+      it { expect(response).to have_http_status(:bad_request) }
+    end
+
+
+    context 'email is not uniqueness' do
+      let!(:email) { Faker::Internet.email }
+      let(:params) { {email: email, name: Faker::Name.name} }
+
+      before do
+        create :user, email: email
+        post '/api/v1/users', params: {user: params}
+      end
+
+      it { expect(response).to have_http_status(:bad_request) }
+    end
+
+  end
+
+
 
 
 
