@@ -36,7 +36,9 @@ en:
     common:
       title: "Something is wrong"
       detail: "Somebody must something do with it"
-
+    not_found:
+      title: "404"
+      detail: "Somebody must something do with it"
   Programs:
     Subscription:
       errors:
