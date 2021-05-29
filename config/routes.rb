@@ -5,7 +5,7 @@ Rails.application.routes.draw do
       resources :users, only: %i[index show create] do
         resources :programs, only: %i[index create destroy], module: :users
       end
-      resources :programs, only: %i[index show] do
+      resources :programs, only: %i[index] do
         collection do
           get :autocomplete
         end

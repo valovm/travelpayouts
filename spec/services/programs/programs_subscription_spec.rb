@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-RSpec.describe 'Programs::Users::Subscriptions' do
+RSpec.describe 'Programs::Subscriptions' do
 
-  let!(:programs_service) { Programs::Users::Subscriptions.new(program, user) }
+  let!(:programs_service) { Programs::Subscriptions.new(program, user) }
   let!(:user) { create :user }
   let!(:program) { create :program }
 
-  describe 'Programs::Users::Subscription' do
+  describe 'Programs::Subscription' do
     it do
       expect(program.count_of_users).to eq(0)
       expect { programs_service.unsubscribe }.to raise_error BaseError

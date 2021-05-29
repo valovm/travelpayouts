@@ -25,7 +25,7 @@ RSpec.describe 'Api::V1::Programs', type: :request do
     end
   end
 
-  describe 'GET /api/v1/programs/:id' do
+  xdescribe 'GET /api/v1/programs/:id' do
 
     let(:program) { Program.last }
 

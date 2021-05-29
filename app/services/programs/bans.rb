@@ -2,7 +2,7 @@
 
 module Programs
 
-  class Users::Bans
+  class Bans
 
     attr_reader :program, :user
 
