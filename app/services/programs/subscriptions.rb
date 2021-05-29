@@ -29,7 +29,7 @@ module Programs
 
     def unsubscribe
       unless subscribed?
-        raise BaseError.new('USER_IS_NOT_SUBSCRIBED', I18n.t('Programs.Subscription.errors.USER_IS_NOT_SUBSCRIBED.title'), I18n.t('Programs.Subscription.errors.USER_IS_NOT_SUBSCRIBED.detail'))
+        raise BaseError.new('USER_IS_NOT_SUBSCRIBED', I18n.t('programs.subscription.errors.USER_IS_NOT_SUBSCRIBED.title'), I18n.t('programs.subscription.errors.USER_IS_NOT_SUBSCRIBED.detail'))
       end
 
       Program.transaction do
@@ -50,10 +50,10 @@ module Programs
 
     def check_subscribe
       if subscribed?
-        raise BaseError.new('USER_IS_SUBSCRIBED_ALREADY', I18n.t('Programs.Subscription.errors.USER_IS_SUBSCRIBED_ALREADY.title'), I18n.t('Programs.Subscription.errors.USER_IS_SUBSCRIBED_ALREADY.detail'))
+        raise BaseError.new('USER_IS_SUBSCRIBED_ALREADY', I18n.t('programs.subscription.errors.USER_IS_SUBSCRIBED_ALREADY.title'), I18n.t('programs.subscription.errors.USER_IS_SUBSCRIBED_ALREADY.detail'))
       end
       if @bans_service.banned?
-        raise BaseError.new('USER_IS_BANNED', I18n.t('Programs.Subscription.errors.USER_IS_BANNED.title'), I18n.t('Programs.Subscription.errors.USER_IS_BANNED.detail'))
+        raise BaseError.new('USER_IS_BANNED', I18n.t('programs.subscription.errors.USER_IS_BANNED.title'), I18n.t('programs.subscription.errors.USER_IS_BANNED.detail'))
       end
     end
 

@@ -21,12 +21,12 @@ class Api::V1::Users::ProgramsController < ApplicationController
   # POST api/v1/users/:user_id/programs
   def create
     program = Program.find subscribe_params[:program_id]
-    render json: {status: :subscribed} if Programs::Subscriptions.new(program, @user).subscribe
+    render json: {message: :subscribed} if Programs::Subscriptions.new(program, @user).subscribe
   end
 
   # DELETE api/v1/users/:user_id/programs/:id
   def destroy
-    render json: {status: :unsubscribed} if Programs::Subscriptions.new(@program, @user).unsubscribe
+    render json: {message: :unsubscribed} if Programs::Subscriptions.new(@program, @user).unsubscribe
   end
 
   private

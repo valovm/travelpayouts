@@ -10,6 +10,9 @@ Rails.application.routes.draw do
           get :autocomplete
         end
       end
+
+      post :bans, to: 'bans#ban'
+      delete :bans, to: 'bans#unban'
     end
   end
 end

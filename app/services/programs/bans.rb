@@ -18,8 +18,8 @@ module Programs
     def in_ban
       if ban
         raise BaseError.new('USER_IS_BANNED_ALREADY',
-                            I18n.t('Programs.Bans.errors.USER_IS_BANNED_ALREADY.title'),
-                            I18n.t('Programs.Bans.errors.USER_IS_BANNED_ALREADY.detail'))
+                            I18n.t('programs.bans.errors.USER_IS_BANNED_ALREADY.title'),
+                            I18n.t('programs.bans.errors.USER_IS_BANNED_ALREADY.detail'))
       end
       BanProgramUser.create! program: program, user: user
 
@@ -29,8 +29,8 @@ module Programs
     def out_ban
       unless ban
         raise BaseError.new('USER_IS_NOT_BANNED',
-                            I18n.t('Programs.Bans.errors.USER_IS_NOT_BANNED.title'),
-                            I18n.t('Programs.Bans.errors.USER_IS_NOT_BANNED.detail'))
+                            I18n.t('programs.bans.errors.USER_IS_NOT_BANNED.title'),
+                            I18n.t('programs.bans.errors.USER_IS_NOT_BANNED.detail'))
       end
       ban.destroy
 

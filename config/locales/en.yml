@@ -39,8 +39,8 @@ en:
     not_found:
       title: "404"
       detail: "Somebody must something do with it"
-  Programs:
-    Subscription:
+  programs:
+    subscription:
       errors:
         USER_IS_SUBSCRIBED_ALREADY:
           title: "User is subscribed already"
@@ -51,7 +51,10 @@ en:
         USER_IS_BANNED:
           title: "User is banned in this program"
           detail: "Somebody must something do with it"
-    Bans:
+    bans:
+      message:
+        user_is_banned: "User is banned in the %{program_name}, successfully"
+        user_is_unbanned: "User is unbanned in the %{program_name}, successfully"
       errors:
         USER_IS_BANNED_ALREADY:
           title: "User is banned already in this program"

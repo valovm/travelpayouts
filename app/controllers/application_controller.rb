@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::API
 
   rescue_from(StandardError) do |e|
+    p e.message
     render json: {
         errors: [{code: 'error', title: I18n.t('errors.common.title'), detail: I18n.t('errors.common.detail')}],
     }, status: 500
