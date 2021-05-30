@@ -12,10 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2021_05_25_235520) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "ban_program_users", force: :cascade do |t|
+  create_table "ban_program_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "program_id"
     t.datetime "created_at", precision: 6, null: false
@@ -25,7 +22,7 @@ ActiveRecord::Schema.define(version: 2021_05_25_235520) do
     t.index ["user_id"], name: "index_ban_program_users_on_user_id"
   end
 
-  create_table "program_users", force: :cascade do |t|
+  create_table "program_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "program_id"
     t.datetime "created_at", precision: 6, null: false
@@ -35,7 +32,7 @@ ActiveRecord::Schema.define(version: 2021_05_25_235520) do
     t.index ["user_id"], name: "index_program_users_on_user_id"
   end
 
-  create_table "programs", force: :cascade do |t|
+  create_table "programs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title", null: false
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
@@ -43,7 +40,7 @@ ActiveRecord::Schema.define(version: 2021_05_25_235520) do
     t.bigint "count_of_users", default: 0
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", null: false
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
