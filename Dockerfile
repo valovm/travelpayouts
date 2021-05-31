@@ -3,8 +3,7 @@ FROM ruby:2.7.2-alpine
 RUN apk add --update --no-cache \
     openssl \
     tzdata \
-    postgresql-dev \
-    postgresql-client \
+    mariadb-dev \
     nodejs \
     git \
     build-base \
