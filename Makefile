@@ -19,5 +19,5 @@ migrate:
 	docker-compose exec core rake db:migrate
 
 install:
-	git clone git@github.com:valovm/travelpayouts.git ./core
+	git clone git@github.com:valovm/travelpayouts_core.git ./core
 	make build
