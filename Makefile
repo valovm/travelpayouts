@@ -8,6 +8,10 @@ stop:
 
 restart: stop start
 
+logs:
+	docker-compose logs -f --tail=100  $(a)
+c:
+	docker-compose  exec core rails c
 ps:
 	docker-compose ps
 
